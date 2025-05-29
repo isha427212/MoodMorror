@@ -1,0 +1,129 @@
+ 
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+
+.mood-selector button {
+  font-size: 2rem;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  background: white;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.mood-selector button:hover {
+  transform: scale(1.2);
+}
+
+
+.avatar {
+  margin: 2rem auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  border: 3px solid #333;
+}
+
+.eyes {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 30px;
+}
+.eyes::before, .eyes::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+.eyes::before { left: 30px; }
+.eyes::after { right: 30px; }
+
+.mouth {
+  width: 40px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+body.happy-theme {
+  background: #fffae3;
+  color: #f39c12;
+}
+.face-happy .mouth {
+  border-radius: 0 0 40px 40px;
+  background: #f39c12;
+}
+
+body.sad-theme {
+  background: #dfe6e9;
+  color: #3498db;
+}
+.face-sad .mouth {
+  border-radius: 40px 40px 0 0;
+  background: #3498db;
+}
+
+body.angry-theme {
+  background: #ffcccc;
+  color: #e74c3c;
+}
+.face-angry .eyes::before, .face-angry .eyes::after {
+  background: #e74c3c;
+}
+.face-angry .mouth {
+  transform: rotate(180deg);
+}
+
+body.calm-theme {
+  background: #e0f7fa;
+  color: #00bcd4;
+}
+.face-calm .mouth {
+  background: #00bcd4;
+}
+
+body.excited-theme {
+  background: #ffe0f7;
+  color: #e91e63;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+.face-excited .mouth {
+  border-radius: 0 0 40px 40px;
+  background: #e91e63;
+}
+
+body.default-theme {
+  background: #f0f0f0;
+  color: #444;
+}
